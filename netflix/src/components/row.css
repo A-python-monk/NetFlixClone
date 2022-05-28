@@ -1,3 +1,6 @@
+.row{
+    margin: 20px;
+}
 .row_poster{
     object-fit: contain;
     width:100%;
@@ -13,10 +16,22 @@
     transform: scale(1.08);
 
 }
+.row_largeposter:hover{
+    transform: scale(1.10);
+
+}
 
 .row_posters{
     display: flex;
     overflow-y: hidden;
     overflow-x: scroll;
     padding: 20px ;
+}
+
+.row_largeposter{
+    max-height: 250px;
+}
+
+.row_title{
+    color: white;
 }

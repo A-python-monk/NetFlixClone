@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "../axios";
 import "./row.css";
 
-const imageurl = "https://image.tmdb.org/t/p/w1280//";
+const imageurl = "https://image.tmdb.org/t/p/w1280/";
 
-function Row({ title, fetchurl }) {
+function Row({ title, fetchurl, islargerow }) {
   const [movies, setmovies] = useState([]);
   useEffect(() => {
     async function fetchData() {
@@ -14,16 +14,18 @@ function Row({ title, fetchurl }) {
     }
     fetchData();
   }, [fetchurl]);
-  console.log(movies);
+  //console.log(movies);
   return (
     <div className="row">
-      <h1>{title}</h1>
+      <h1 className="row_title">{title}</h1>
       <div className="row_posters">
         {movies.map((movie, i) => (
           <img
             key={movie.id}
-            className="row_poster"
-            src={imageurl + movie.poster_path}
+            className={`row_poster ${islargerow && "row_largeposter"}`}
+            src={`${imageurl}${
+              islargerow ? movie.poster_path : movie.backdrop_path
+            }`}
             alt={movie.title}
           />
         ))}

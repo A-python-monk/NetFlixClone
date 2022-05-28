@@ -1,12 +1,17 @@
 import "./App.css";
 import requests from "./requests";
 import Row from "./components/Row";
+import Banner from "./components/banner";
+import Nav from "./components/navbar";
 function App() {
   return (
     <div className="App">
+      <Nav />
+      <Banner />
       <Row
         title="Netflix Originals"
         fetchurl={requests.fetchNetflixOriginals}
+        islargerow
       />
       <Row title="Trending Now" fetchurl={requests.fetchTrending} />
       <Row title="Top Rated" fetchurl={requests.fetchTopRated} />
